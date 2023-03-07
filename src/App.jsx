@@ -17,8 +17,13 @@ function App() {
     }
   }
 
-  const validColor = (color) => {
-    
+  const validColor = () => {
+    if(color.length < 6){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 
   const onChangeName = (e) => setName(e.target.value);
@@ -27,7 +32,8 @@ function App() {
   const onSubmitForm = (e) => {
     e.preventDefault();
     let valid = validName();
-    if (valid == false){
+    let validC = validColor();
+    if ((valid == false) || (validC == false)){
       setShowCard(false);
       alert ("Por favor chequea que la informacion sea correcta.")
     } else {
